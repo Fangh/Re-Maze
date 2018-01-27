@@ -12,18 +12,24 @@ public class PlayerController : MonoBehaviour
 	public Text stepsText;
 	public Text deadText;
 	public List<Transform> respawnPoints;
+	public GameObject linePrefab;
 
 	[Header("Balancing")]
 	public float maxSteps = 10;
+	public float lineLength = 3;
 
 	private CharacterController controller;
 	private float currentStepsNumber;
 	private bool isDead = false;
+	private bool isDrawing = false;
+	private LineRenderer currentLine;
+	private Transform cameraTransform;
 
 	// Use this for initialization
 	void Start () 
 	{
 		controller = GetComponent<CharacterController>();
+		cameraTransform = Camera.main.transform;
 		Init();
 	}
 
@@ -51,11 +57,36 @@ public class PlayerController : MonoBehaviour
 		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
 			RaycastHit hit;
-			if ( Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 2, decalsStickOn) )
+			if ( Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, 2, decalsStickOn) )
 			{
 				GameObject d = GameObject.Instantiate(decalPrefab, hit.point, Quaternion.identity );
 				d.transform.LookAt(hit.point - hit.normal);		
 			}
+		}
+
+		if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+		{
+			GameObject line = GameObject.Instantiate(linePrefab, cameraTransform.position, Quaternion.identity);
+			currentLine = line.GetComponent<LineRenderer>();
+			currentLine.SetPosition(0, cameraTransform.position + cameraTransform.forward);
+			isDrawing = true;
+		}
+
+		if ( isDrawing )
+		{
+			currentLine.SetPosition(1, cameraTransform.position + cameraTransform.forward);
+
+			if ( Vector3.Distance( currentLine.GetPosition(0), currentLine.GetPosition(1) ) > lineLength)
+			{
+				isDrawing = false;
+				currentLine = null;
+			}
+		}
+
+		if ( CrossPlatformInputManager.GetButtonUp("Fire2") )
+		{
+			isDrawing = false;
+			currentLine = null;
 		}
 
 		if ( controller.velocity.magnitude != 0 )
