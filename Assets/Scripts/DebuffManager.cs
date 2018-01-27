@@ -75,7 +75,7 @@ public class DebuffManager : MonoBehaviour {
 
     void DistortCamera()
     {
-        cam.fieldOfView = 100;
+        cam.fieldOfView = 25;
     }
 
     void Colorblindness()
