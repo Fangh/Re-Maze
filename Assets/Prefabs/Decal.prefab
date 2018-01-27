@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4139638426243158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4175051357986722}
   - component: {fileID: 33696029807465018}
   - component: {fileID: 23541659654397772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
