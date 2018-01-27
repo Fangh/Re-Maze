@@ -8,7 +8,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PlayerController : MonoBehaviour 
 {
 	[Header("References")]
-	public GameObject decalPrefab;
+    public GameObject decalSymbolPrefab;
+    public GameObject decalCrossPrefab;
 	public LayerMask decalsStickOn;
 	public Text stepsText;
 	public Text deadText;
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
 		GetComponent<FirstPersonController>().enabled = true;
 		GetComponent<FirstPersonController>().Reinit();
 		LevelManager.Instance.ResetLevel();
+        GetComponent<DebuffManager>().Restart();
+
 	}
 	
 	// Update is called once per frame
@@ -75,39 +78,40 @@ public class PlayerController : MonoBehaviour
 		{
 			Spray();
 		}
-		if (CrossPlatformInputManager.GetButtonDown("ChangeColor"))
-		{
-			firstColor = !firstColor;
-			crosshair.color = firstColor ? Color.red : Color.blue;
-		}
+        //if (CrossPlatformInputManager.GetButtonDown("ChangeColor"))
+        //{
+        //    firstColor = !firstColor;
+        //    crosshair.color = firstColor ? Color.red : Color.blue;
+        //}
 
 		if (CrossPlatformInputManager.GetButtonDown("Fire2"))
 		{
-			GameObject line = GameObject.Instantiate(linePrefab, cameraTransform.position, Quaternion.identity);
-			currentLine = line.GetComponent<LineRenderer>();
-			currentLine.SetPosition(0, cameraTransform.position + cameraTransform.forward);
-			isDrawing = true;
-			audioSource.PlayOneShot(SFX_startDrawing);
+            SprayCross();
+            //GameObject line = GameObject.Instantiate(linePrefab, cameraTransform.position, Quaternion.identity);
+            //currentLine = line.GetComponent<LineRenderer>();
+            //currentLine.SetPosition(0, cameraTransform.position + cameraTransform.forward);
+            //isDrawing = true;
+            //audioSource.PlayOneShot(SFX_startDrawing);
 		}
 
-		if ( isDrawing )
-		{
-			currentLine.SetPosition(1, cameraTransform.position + cameraTransform.forward);
+        //if ( isDrawing )
+        //{
+        //    currentLine.SetPosition(1, cameraTransform.position + cameraTransform.forward);
 
-			if ( Vector3.Distance( currentLine.GetPosition(0), currentLine.GetPosition(1) ) > lineLength)
-			{
-				isDrawing = false;
-				currentLine = null;
-				audioSource.PlayOneShot(SFX_stopDrawing);
-			}
-		}
+        //    if ( Vector3.Distance( currentLine.GetPosition(0), currentLine.GetPosition(1) ) > lineLength)
+        //    {
+        //        isDrawing = false;
+        //        currentLine = null;
+        //        audioSource.PlayOneShot(SFX_stopDrawing);
+        //    }
+        //}
 
-		if ( CrossPlatformInputManager.GetButtonUp("Fire2") )
-		{
-			isDrawing = false;
-			currentLine = null;
-			audioSource.PlayOneShot(SFX_stopDrawing);
-		}
+        //if ( CrossPlatformInputManager.GetButtonUp("Fire2") )
+        //{
+        //    isDrawing = false;
+        //    currentLine = null;
+        //    audioSource.PlayOneShot(SFX_stopDrawing);
+        //}
 
 		if ( controller.velocity.magnitude != 0 )
 		{
@@ -127,15 +131,24 @@ public class PlayerController : MonoBehaviour
 		RaycastHit hit;
 		if ( Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, distanceToSpray, decalsStickOn) )
 		{
-			GameObject d = GameObject.Instantiate(decalPrefab, hit.point, Quaternion.identity );
+			GameObject d = GameObject.Instantiate(decalSymbolPrefab, hit.point, Quaternion.identity );
 			d.transform.LookAt(hit.point - hit.normal);
 			audioSource.PlayOneShot(SFX_spray);
-			if (firstColor)
 				d.GetComponentInChildren<Renderer>().material.color = Color.red;
-			else
-				d.GetComponentInChildren<Renderer>().material.color = Color.blue;
 		}
 	}
+
+    void SprayCross()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, distanceToSpray, decalsStickOn))
+        {
+            GameObject d = GameObject.Instantiate(decalCrossPrefab, hit.point, Quaternion.identity);
+            d.transform.LookAt(hit.point - hit.normal);
+            audioSource.PlayOneShot(SFX_spray);
+            d.GetComponentInChildren<Renderer>().material.color = Color.red;
+        }
+    }
 
 	void Die()
 	{
