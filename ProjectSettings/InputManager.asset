@@ -127,7 +127,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0.19
-    sensitivity: 1
+    sensitivity: 2
     snap: 0
     invert: 0
     type: 2
@@ -159,7 +159,7 @@ InputManager:
     altPositiveButton: 
     gravity: 0
     dead: 0.19
-    sensitivity: 1
+    sensitivity: 2
     snap: 0
     invert: 1
     type: 2
@@ -266,7 +266,7 @@ InputManager:
     descriptiveName: Respawn
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: r
+    positiveButton: space
     altNegativeButton: 
     altPositiveButton: joystick button 7
     gravity: 1000

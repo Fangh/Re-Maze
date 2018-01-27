@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -53,6 +54,9 @@ public class PlayerController : MonoBehaviour
 		transform.position = respawnPoints[Random.Range(0, respawnPoints.Count)].position;
 		transform.rotation = respawnPoints[Random.Range(0, respawnPoints.Count)].rotation;
 		GameObject.Instantiate(birdPrefab, birdPrefab.transform.position, birdPrefab.transform.rotation);
+		GetComponent<DebuffManager>().Restart();
+		GetComponent<FirstPersonController>().enabled = true;
+		GetComponent<FirstPersonController>().Reinit();
 		LevelManager.Instance.ResetLevel();
 	}
 	
@@ -138,6 +142,7 @@ public class PlayerController : MonoBehaviour
 		isDead = true;
 		deadText.gameObject.SetActive(true);
 		controller.enabled = false;
+		GetComponent<FirstPersonController>().enabled = false;
 	}
 
 	public int GetCurrentSteps()
