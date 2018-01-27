@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -22922,6 +22922,26 @@ Prefab:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1598640040}
+    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: maxSteps
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 20775594673992636, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20775594673992636, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20775594673992636, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bda08da08569eaf46b60c5990e1f9c50, type: 2}
   m_IsPrefabParent: 0
