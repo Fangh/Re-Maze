@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 	public Text deadText;
 	public List<Transform> respawnPoints;
 	public GameObject linePrefab;
+	public Image crosshair;
 	
 	[Header("Audio")]
 	public AudioClip SFX_spray;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
 	private LineRenderer currentLine;
 	private Transform cameraTransform;
 	private AudioSource audioSource;
+	private bool firstColor = true;
 
 	// Use this for initialization
 	void Start () 
@@ -64,13 +66,12 @@ public class PlayerController : MonoBehaviour
 		}
 		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
-			RaycastHit hit;
-			if ( Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, distanceToSpray, decalsStickOn) )
-			{
-				GameObject d = GameObject.Instantiate(decalPrefab, hit.point, Quaternion.identity );
-				d.transform.LookAt(hit.point - hit.normal);
-				audioSource.PlayOneShot(SFX_spray);
-			}
+			Spray();
+		}
+		if (CrossPlatformInputManager.GetButtonDown("ChangeColor"))
+		{
+			firstColor = !firstColor;
+			crosshair.color = firstColor ? Color.red : Color.blue;
 		}
 
 		if (CrossPlatformInputManager.GetButtonDown("Fire2"))
@@ -112,6 +113,21 @@ public class PlayerController : MonoBehaviour
 		}
 
 		stepsText.text = string.Format("Steps : {0} / {1}", Mathf.RoundToInt(currentStepsNumber).ToString(), maxSteps);
+	}
+
+	void Spray()
+	{
+		RaycastHit hit;
+		if ( Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, distanceToSpray, decalsStickOn) )
+		{
+			GameObject d = GameObject.Instantiate(decalPrefab, hit.point, Quaternion.identity );
+			d.transform.LookAt(hit.point - hit.normal);
+			audioSource.PlayOneShot(SFX_spray);
+			if (firstColor)
+				d.GetComponentInChildren<Renderer>().material.color = Color.red;
+			else
+				d.GetComponentInChildren<Renderer>().material.color = Color.blue;
+		}
 	}
 
 	void Die()
