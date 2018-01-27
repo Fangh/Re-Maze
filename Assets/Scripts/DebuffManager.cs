@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using DG.Tweening;
 
 public class DebuffManager : MonoBehaviour {
 
@@ -92,7 +93,8 @@ public class DebuffManager : MonoBehaviour {
 
     void DistortCamera()
     {
-        cam.fieldOfView = 25;
+        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 0.5f, 5f);
+        //cam.fieldOfView = 120;
     }
 
     void Colorblindness()
@@ -102,7 +104,9 @@ public class DebuffManager : MonoBehaviour {
 
     void Darkness()
     {
-        cam.cullingMask = blind;
+        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 1f, 5f);
+        //cam.farClipPlane = 8;
+        //cam.cullingMask = blind;
     }
 
     void Die()
@@ -114,7 +118,9 @@ public class DebuffManager : MonoBehaviour {
 
     void Restart()
     {
+        RenderSettings.fogDensity = 0.1f;
         currentStage = DebuffStage.Normal;
+        cam.farClipPlane = 1000;
         cam.fieldOfView = 60;
         cam.cullingMask = std;
         postpro.profile = stdProfile;

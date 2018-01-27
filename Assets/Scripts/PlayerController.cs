@@ -54,14 +54,14 @@ public class PlayerController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
+	void Update ()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Submit"))
+        {
+            Init();
+        }
 		if (isDead)
 		{
-			if ( CrossPlatformInputManager.GetButtonDown("Submit") )
-			{
-				Init();
-			}
 			return;
 		}
 		if (CrossPlatformInputManager.GetButtonDown("Fire1"))

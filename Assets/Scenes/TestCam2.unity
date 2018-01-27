@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -3204,103 +3204,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 339941715}
   m_Mesh: {fileID: 4300014, guid: 6a502a75bdee51a4ebc63b29ec1e4478, type: 3}
---- !u!1 &355864284 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1522364308838774, guid: bda08da08569eaf46b60c5990e1f9c50,
-    type: 2}
-  m_PrefabInternal: {fileID: 1996195746}
---- !u!82 &355864285
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 355864284}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!114 &355864287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 355864284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 642e5a3c34137b74e9520768c958cf12, type: 2}
 --- !u!1 &359648202
 GameObject:
   m_ObjectHideFlags: 0
@@ -22716,11 +22619,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: respawnPoints.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4278440185718086, guid: bda08da08569eaf46b60c5990e1f9c50, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22755,11 +22653,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
         type: 2}
-      propertyPath: debugText
-      value: 
-      objectReference: {fileID: 675890833}
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
       propertyPath: stepsText
       value: 
       objectReference: {fileID: 675890833}
@@ -22773,64 +22666,6 @@ Prefab:
       propertyPath: respawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 417117349}
-    - target: {fileID: 114695186503216612, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: m_IsWalking
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: linePrefab
-      value: 
-      objectReference: {fileID: 1164372121358934, guid: 9b51f1c950db8c54cb6753afb38dfcae,
-        type: 2}
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: maxSteps
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 143046765970997078, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: m_StepOffset
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 143046765970997078, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: m_SlopeLimit
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 82111710443901116, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: SFX_startDrawing
-      value: 
-      objectReference: {fileID: 8300000, guid: d1a75e84f48d95a47a7d8acca655f921, type: 3}
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: SFX_stopDrawing
-      value: 
-      objectReference: {fileID: 8300000, guid: aed99b7b224249b4e807cc09b80e9611, type: 3}
-    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: SFX_spray
-      value: 
-      objectReference: {fileID: 8300000, guid: 83d29ce33bec40e47b65e9a7c2660aa5, type: 3}
-    - target: {fileID: 114927976314667794, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: colorblindProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: e23dfaa943b030242a8beab54a6e4144,
-        type: 2}
-    - target: {fileID: 114927976314667794, guid: bda08da08569eaf46b60c5990e1f9c50,
-        type: 2}
-      propertyPath: stdProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 642e5a3c34137b74e9520768c958cf12,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bda08da08569eaf46b60c5990e1f9c50, type: 2}
   m_IsPrefabParent: 0
