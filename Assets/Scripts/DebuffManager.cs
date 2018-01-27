@@ -14,6 +14,7 @@ public class DebuffManager : MonoBehaviour {
     DebuffStage currentStage = DebuffStage.Normal;
     PostProcessingBehaviour postpro;
     PostProcessingController postproCont;
+    LayerMask stdMask;
     const float transitionDuration = 5;
 
     public PostProcessingProfile stdProfile;
@@ -24,6 +25,7 @@ public class DebuffManager : MonoBehaviour {
         player = GetComponent<PlayerController>();
         postpro = transform.GetChild(0).GetComponent<PostProcessingBehaviour>();
         postproCont = postpro.GetComponent<PostProcessingController>();
+        stdMask = cam.cullingMask;
 	}
 	
 	// Update is called once per frame
@@ -132,6 +134,6 @@ public class DebuffManager : MonoBehaviour {
         RenderSettings.fogDensity = 0.1f;
         postproCont.colorGrading.basic.saturation = 1;
         cam.clearFlags = CameraClearFlags.Skybox;
-        cam.cullingMask = 1 << 9;
+        cam.cullingMask = stdMask;
     }
 }
