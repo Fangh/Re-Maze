@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	public List<Transform> respawnPoints;
 	public GameObject linePrefab;
 	public Image crosshair;
+	public GameObject birdPrefab;
 	
 	[Header("Audio")]
 	public AudioClip SFX_spray;
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
 		controller.enabled = true;
 		transform.position = respawnPoints[Random.Range(0, respawnPoints.Count)].position;
 		transform.rotation = respawnPoints[Random.Range(0, respawnPoints.Count)].rotation;
+		GameObject.Instantiate(birdPrefab, birdPrefab.transform.position, birdPrefab.transform.rotation);
 		LevelManager.Instance.ResetLevel();
 	}
 	
