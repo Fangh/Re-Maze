@@ -14,7 +14,7 @@ public class Birds : MonoBehaviour
 		birdPoints = GameObject.Find("BirdPoints");
 		for (int i = 0; i < birdPoints.transform.childCount; i++)
 		{
-			points.Add( birdPoints.transform.GetChild(0) );
+			points.Add( birdPoints.transform.GetChild(i) );
 		}
 
 		GoToPoint();
