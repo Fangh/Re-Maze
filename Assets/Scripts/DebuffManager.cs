@@ -10,6 +10,9 @@ public class DebuffManager : MonoBehaviour {
     Camera cam;
     DebuffStage currentStage = DebuffStage.Normal;
 
+    public LayerMask std;
+    public LayerMask blind;
+
 	// Use this for initialization
 	void Start () {
         cam = Camera.main;
@@ -82,13 +85,13 @@ public class DebuffManager : MonoBehaviour {
 
     void Darkness()
     {
-        cam.cullingMask = 9;
+        cam.cullingMask = blind;
     }
 
     void Restart()
     {
         currentStage = DebuffStage.Normal;
         cam.fieldOfView = 60;
-        cam.cullingMask = 1 << 9;
+        cam.cullingMask = std;
     }
 }

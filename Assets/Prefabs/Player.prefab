@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114695186503216612}
   - component: {fileID: 54499430785656870}
   - component: {fileID: 82111710443901116}
+  - component: {fileID: 114927976314667794}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -230,6 +231,13 @@ MonoBehaviour:
   decalsStickOn:
     serializedVersion: 2
     m_Bits: 4294967039
+  stepsText: {fileID: 0}
+  deadText: {fileID: 0}
+  respawnPoints:
+  - {fileID: 0}
+  linePrefab: {fileID: 1164372121358934, guid: 9b51f1c950db8c54cb6753afb38dfcae, type: 2}
+  maxSteps: 10
+  lineLength: 3
 --- !u!114 &114695186503216612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsWalking: 0
+  m_IsWalking: 1
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
@@ -332,6 +340,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+--- !u!114 &114927976314667794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399286751165066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5282d412b5401884a8d7fd880ae15df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  std:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  blind:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!124 &124423230657796606
 Behaviour:
   m_ObjectHideFlags: 1
