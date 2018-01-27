@@ -109,7 +109,7 @@ public class DebuffManager : MonoBehaviour {
         yield return new WaitForSeconds(0.01f);
         if (postproCont.colorGrading.basic.saturation > 0)
         {
-            postproCont.colorGrading.basic.saturation = Mathf.Lerp(1, 0, (Time.time - startTime)/ duration);
+            postproCont.colorGrading.basic.saturation = Mathf.Lerp(1, 0, (Time.time - startTime) / duration);
             StartCoroutine(ColorblindnessCoroutine(startTime, duration));
         }
         else postproCont.colorGrading.basic.saturation = 0;
