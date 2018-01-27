@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4278440185718086}
   - component: {fileID: 143046765970997078}
+  - component: {fileID: 114309469561860850}
   - component: {fileID: 114695186503216612}
   - component: {fileID: 54499430785656870}
   - component: {fileID: 82111710443901116}
-  - component: {fileID: 114309469561860850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 20775594673992636}
   - component: {fileID: 81849986990619182}
   - component: {fileID: 124423230657796606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -227,6 +227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decalPrefab: {fileID: 1299555914016146, guid: f2b9e8bc24c911f409d4f32884ef71da,
     type: 2}
+  decalsStickOn:
+    serializedVersion: 2
+    m_Bits: 4294967039
 --- !u!114 &114695186503216612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,7 +257,7 @@ MonoBehaviour:
     smooth: 0
     smoothTime: 5
     lockCursor: 1
-  m_UseFovKick: 1
+  m_UseFovKick: 0
   m_FovKick:
     Camera: {fileID: 0}
     originalFov: 0
@@ -279,7 +282,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_UseHeadBob: 1
+  m_UseHeadBob: 0
   m_HeadBob:
     HorizontalBobRange: 0.1
     VerticalBobRange: 0.1

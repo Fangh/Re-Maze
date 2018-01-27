@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
+	[Header("References")]
 	public GameObject decalPrefab;
+	public LayerMask decalsStickOn;
 
 	// Use this for initialization
 	void Start () 
@@ -18,9 +20,10 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			RaycastHit hit;
-			if ( Physics.Raycast(transform.position, transform.forward, out hit, 2) )
+			if ( Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 2, decalsStickOn) )
 			{
-				GameObject.Instantiate(decalPrefab, hit.point, Quaternion.Euler( hit.normal) );				
+				GameObject d = GameObject.Instantiate(decalPrefab, hit.point, Quaternion.identity );
+				d.transform.LookAt(hit.point - hit.normal);		
 			}
 		}
 		
