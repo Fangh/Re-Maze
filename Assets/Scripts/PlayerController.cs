@@ -13,10 +13,16 @@ public class PlayerController : MonoBehaviour
 	public Text deadText;
 	public List<Transform> respawnPoints;
 	public GameObject linePrefab;
+	
+	[Header("Audio")]
+	public AudioClip SFX_spray;
+	public AudioClip SFX_startDrawing;
+	public AudioClip SFX_stopDrawing;
 
 	[Header("Balancing")]
 	public float maxSteps = 10;
 	public float lineLength = 3;
+	public float distanceToSpray = 2;
 
 	private CharacterController controller;
 	private float currentStepsNumber;
@@ -24,12 +30,14 @@ public class PlayerController : MonoBehaviour
 	private bool isDrawing = false;
 	private LineRenderer currentLine;
 	private Transform cameraTransform;
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () 
 	{
 		controller = GetComponent<CharacterController>();
 		cameraTransform = Camera.main.transform;
+		audioSource = cameraTransform.GetComponent<AudioSource>();
 		Init();
 	}
 
@@ -57,10 +65,11 @@ public class PlayerController : MonoBehaviour
 		if (CrossPlatformInputManager.GetButtonDown("Fire1"))
 		{
 			RaycastHit hit;
-			if ( Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, 2, decalsStickOn) )
+			if ( Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, distanceToSpray, decalsStickOn) )
 			{
 				GameObject d = GameObject.Instantiate(decalPrefab, hit.point, Quaternion.identity );
-				d.transform.LookAt(hit.point - hit.normal);		
+				d.transform.LookAt(hit.point - hit.normal);
+				audioSource.PlayOneShot(SFX_spray);
 			}
 		}
 
@@ -70,6 +79,7 @@ public class PlayerController : MonoBehaviour
 			currentLine = line.GetComponent<LineRenderer>();
 			currentLine.SetPosition(0, cameraTransform.position + cameraTransform.forward);
 			isDrawing = true;
+			audioSource.PlayOneShot(SFX_startDrawing);
 		}
 
 		if ( isDrawing )
@@ -80,6 +90,7 @@ public class PlayerController : MonoBehaviour
 			{
 				isDrawing = false;
 				currentLine = null;
+				audioSource.PlayOneShot(SFX_stopDrawing);
 			}
 		}
 
@@ -87,6 +98,7 @@ public class PlayerController : MonoBehaviour
 		{
 			isDrawing = false;
 			currentLine = null;
+			audioSource.PlayOneShot(SFX_stopDrawing);
 		}
 
 		if ( controller.velocity.magnitude != 0 )
