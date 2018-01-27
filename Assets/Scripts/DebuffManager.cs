@@ -34,22 +34,22 @@ public class DebuffManager : MonoBehaviour {
         {
             Debuff();
         }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Restart();
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            DistortCamera();
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Colorblindness();
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Darkness();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Restart();
+        //}
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    DistortCamera();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    Colorblindness();
+        //}
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    Darkness();
+        //}
 	}
 
     bool ProgressionHasChanged()
@@ -127,7 +127,7 @@ public class DebuffManager : MonoBehaviour {
         cam.backgroundColor = Color.black;
     }
 
-    void Restart()
+    public void Restart()
     {
         currentStage = DebuffStage.Normal;
         RenderSettings.fogDensity = 0.1f;
