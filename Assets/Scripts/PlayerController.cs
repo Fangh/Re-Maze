@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
 		controller.enabled = true;
 		transform.position = respawnPoints[Random.Range(0, respawnPoints.Count)].position;
 		transform.rotation = respawnPoints[Random.Range(0, respawnPoints.Count)].rotation;
+		LevelManager.Instance.ResetLevel();
 	}
 	
 	// Update is called once per frame
