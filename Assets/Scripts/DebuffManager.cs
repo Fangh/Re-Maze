@@ -29,15 +29,27 @@ public class DebuffManager : MonoBehaviour {
         {
             Restart();
         }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            DistortCamera();
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Colorblindness();
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            Darkness();
+        }
 	}
 
     bool ProgressionHasChanged()
     {
         switch (currentStage)
         {
-            case DebuffStage.Normal: return (GetProgression() < 0.75f);
-            case DebuffStage.Distortion: return (GetProgression() < 0.5f);
-            case DebuffStage.Colorblind: return (GetProgression() < 0.25f);
+            case DebuffStage.Normal: return (GetProgression() > 0.25f);
+            case DebuffStage.Distortion: return (GetProgression() > 0.5f);
+            case DebuffStage.Colorblind: return (GetProgression() > 0.75f);
             case DebuffStage.Blind: return false;
             default: Debug.LogError("wrong place");
                 return false;
