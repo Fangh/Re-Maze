@@ -461,7 +461,7 @@ MonoBehaviour:
       fresnelFadePower: 0
     screenEdgeMask:
       intensity: 0
-  controlDepthOfField: 1
+  controlDepthOfField: 0
   enableDepthOfField: 0
   depthOfField:
     focusDistance: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
     lensDirt:
       texture: {fileID: 0}
       intensity: 0
-  controlColorGrading: 0
+  controlColorGrading: 1
   enableColorGrading: 0
   colorGrading:
     tonemapping:
