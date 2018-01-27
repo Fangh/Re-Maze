@@ -10789,6 +10789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956955975}
   - component: {fileID: 956955974}
+  - component: {fileID: 956955976}
   m_Layer: 0
   m_Name: RootCam
   m_TagString: Untagged
@@ -10825,6 +10826,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 41.460003, y: -87.008865, z: -0.002}
+--- !u!114 &956955976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956955973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbd1595d37193a42ab0cfc51cdfe1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &972600123
 GameObject:
   m_ObjectHideFlags: 0
