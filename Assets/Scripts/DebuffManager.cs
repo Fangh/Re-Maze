@@ -20,7 +20,7 @@ public class DebuffManager : MonoBehaviour {
     public PostProcessingProfile stdProfile;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         cam = Camera.main;
         player = GetComponent<PlayerController>();
         postpro = transform.GetChild(0).GetComponent<PostProcessingBehaviour>();
