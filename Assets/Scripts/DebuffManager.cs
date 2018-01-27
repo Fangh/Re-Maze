@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class DebuffManager : MonoBehaviour {
 
@@ -9,14 +10,18 @@ public class DebuffManager : MonoBehaviour {
     PlayerController player;
     Camera cam;
     DebuffStage currentStage = DebuffStage.Normal;
+    PostProcessingBehaviour postpro;
 
     public LayerMask std;
     public LayerMask blind;
+    public PostProcessingProfile stdProfile;
+    public PostProcessingProfile colorblindProfile;
 
 	// Use this for initialization
 	void Start () {
         cam = Camera.main;
         player = GetComponent<PlayerController>();
+        postpro = transform.GetChild(0).GetComponent<UnityEngine.PostProcessing.PostProcessingBehaviour>();
 	}
 	
 	// Update is called once per frame
@@ -50,7 +55,7 @@ public class DebuffManager : MonoBehaviour {
             case DebuffStage.Normal: return (GetProgression() > 0.25f);
             case DebuffStage.Distortion: return (GetProgression() > 0.5f);
             case DebuffStage.Colorblind: return (GetProgression() > 0.75f);
-            case DebuffStage.Blind: return false;
+            case DebuffStage.Blind: return (GetProgression() >= 1f);
             default: Debug.LogError("wrong place");
                 return false;
         }
@@ -78,7 +83,7 @@ public class DebuffManager : MonoBehaviour {
                 Darkness();
                 currentStage = DebuffStage.Blind;
                 break;
-            case DebuffStage.Blind: // Nothing to do
+            case DebuffStage.Blind: Die();
                 break;
             default: Debug.LogError("wrong place");
                 break;
@@ -92,7 +97,7 @@ public class DebuffManager : MonoBehaviour {
 
     void Colorblindness()
     {
-        // ToDo
+        postpro.profile = colorblindProfile;
     }
 
     void Darkness()
@@ -100,10 +105,19 @@ public class DebuffManager : MonoBehaviour {
         cam.cullingMask = blind;
     }
 
+    void Die()
+    {
+        cam.cullingMask = 0;
+        cam.clearFlags = CameraClearFlags.SolidColor;
+        cam.backgroundColor = Color.black;
+    }
+
     void Restart()
     {
         currentStage = DebuffStage.Normal;
         cam.fieldOfView = 60;
         cam.cullingMask = std;
+        postpro.profile = stdProfile;
+        cam.clearFlags = CameraClearFlags.Skybox;
     }
 }

@@ -3289,6 +3289,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &355864287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355864284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 642e5a3c34137b74e9520768c958cf12, type: 2}
 --- !u!1 &359648202
 GameObject:
   m_ObjectHideFlags: 0
@@ -22807,6 +22819,18 @@ Prefab:
       propertyPath: SFX_spray
       value: 
       objectReference: {fileID: 8300000, guid: 83d29ce33bec40e47b65e9a7c2660aa5, type: 3}
+    - target: {fileID: 114927976314667794, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: colorblindProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: e23dfaa943b030242a8beab54a6e4144,
+        type: 2}
+    - target: {fileID: 114927976314667794, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: stdProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 642e5a3c34137b74e9520768c958cf12,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bda08da08569eaf46b60c5990e1f9c50, type: 2}
   m_IsPrefabParent: 0
