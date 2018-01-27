@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using UnityEngine.PostProcessing.Utilities;
 using DG.Tweening;
 
 public class DebuffManager : MonoBehaviour {
@@ -12,17 +13,17 @@ public class DebuffManager : MonoBehaviour {
     Camera cam;
     DebuffStage currentStage = DebuffStage.Normal;
     PostProcessingBehaviour postpro;
+    PostProcessingController postproCont;
+    const float transitionDuration = 5;
 
-    public LayerMask std;
-    public LayerMask blind;
     public PostProcessingProfile stdProfile;
-    public PostProcessingProfile colorblindProfile;
 
 	// Use this for initialization
 	void Start () {
         cam = Camera.main;
         player = GetComponent<PlayerController>();
-        postpro = transform.GetChild(0).GetComponent<UnityEngine.PostProcessing.PostProcessingBehaviour>();
+        postpro = transform.GetChild(0).GetComponent<PostProcessingBehaviour>();
+        postproCont = postpro.GetComponent<PostProcessingController>();
 	}
 	
 	// Update is called once per frame
@@ -53,9 +54,9 @@ public class DebuffManager : MonoBehaviour {
     {
         switch (currentStage)
         {
-            case DebuffStage.Normal: return (GetProgression() > 0.25f);
-            case DebuffStage.Distortion: return (GetProgression() > 0.5f);
-            case DebuffStage.Colorblind: return (GetProgression() > 0.75f);
+            case DebuffStage.Normal: return (GetProgression() > 0.3f);
+            case DebuffStage.Distortion: return (GetProgression() > 0.6f);
+            case DebuffStage.Colorblind: return (GetProgression() > 0.85f);
             case DebuffStage.Blind: return (GetProgression() >= 1f);
             default: Debug.LogError("wrong place");
                 return false;
@@ -93,20 +94,29 @@ public class DebuffManager : MonoBehaviour {
 
     void DistortCamera()
     {
-        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 0.5f, 5f);
-        //cam.fieldOfView = 120;
+        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 0.5f, transitionDuration);
     }
 
     void Colorblindness()
     {
-        postpro.profile = colorblindProfile;
+        StartCoroutine(ColorblindnessCoroutine(Time.time, transitionDuration));
+    }
+
+    IEnumerator ColorblindnessCoroutine(float startTime, float duration)
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (postproCont.colorGrading.basic.saturation > 0)
+        {
+            Mathf.Lerp(1, 0, (Time.time - startTime)/ duration);
+            postproCont.colorGrading.basic.saturation -= 0.01f;
+            StartCoroutine(ColorblindnessCoroutine(startTime, duration));
+        }
+        else postproCont.colorGrading.basic.saturation = 0;
     }
 
     void Darkness()
     {
-        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 1f, 5f);
-        //cam.farClipPlane = 8;
-        //cam.cullingMask = blind;
+        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 1f, transitionDuration);
     }
 
     void Die()
@@ -118,12 +128,10 @@ public class DebuffManager : MonoBehaviour {
 
     void Restart()
     {
-        RenderSettings.fogDensity = 0.1f;
         currentStage = DebuffStage.Normal;
-        cam.farClipPlane = 1000;
-        cam.fieldOfView = 60;
-        cam.cullingMask = std;
-        postpro.profile = stdProfile;
+        RenderSettings.fogDensity = 0.1f;
+        postproCont.colorGrading.basic.saturation = 1;
         cam.clearFlags = CameraClearFlags.Skybox;
+        cam.cullingMask = 1 << 9;
     }
 }
