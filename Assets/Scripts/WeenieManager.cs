@@ -23,7 +23,7 @@ public class WeenieManager : MonoBehaviour {
         {
             childrenPos.Add(transform.GetChild(i).position);
         }
-        weenie = GameObject.Instantiate(weeniePrefab, childrenPos[Mathf.FloorToInt(Random.value * childrenPos.Count)], Quaternion.identity).transform;
+        weenie = GameObject.Instantiate(weeniePrefab, childrenPos[Random.Range(0, childrenPos.Count)], Quaternion.identity).transform;
 	}
 
     public void Restart()
@@ -33,7 +33,7 @@ public class WeenieManager : MonoBehaviour {
 
     void RandomPlacement()
     {
-        Debug.Assert(transform.childCount > 0, "There are no locations defined for the weenie");
-        weenie.position = childrenPos[Mathf.FloorToInt(Random.value * childrenPos.Count)];
+        // Debug.Assert(transform.childCount > 0, "There are no locations defined for the weenie");
+        weenie.position = childrenPos[Random.Range(0, childrenPos.Count)];
     }
 }
