@@ -58356,6 +58356,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 481723816}
   modules: []
+  skyboxes:
+  - {fileID: 2100000, guid: e00cbf023adc4f0488855893fc850b42, type: 2}
+  - {fileID: 2100000, guid: 8ad8dcef4c274ab44996e18c43a6fa76, type: 2}
+  - {fileID: 2100000, guid: e9dede46b28a8b14189e4de28c557d85, type: 2}
 --- !u!4 &1910065974
 Transform:
   m_ObjectHideFlags: 0
@@ -61343,7 +61347,7 @@ Prefab:
     - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
         type: 2}
       propertyPath: maxSteps
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
         type: 2}

@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 	[Header("References")]
 	public Transform directionalLight;
 	public List<Module> modules;
+	public List<Material> skyboxes;
 
 	LevelManager()
 	{
@@ -23,7 +24,8 @@ public class LevelManager : MonoBehaviour
 
 	public void ResetLevel()
 	{
-		directionalLight.rotation = Quaternion.Euler( directionalLight.rotation.eulerAngles.x, directionalLight.rotation.eulerAngles.y + 90, directionalLight.rotation.eulerAngles.z);
+		// directionalLight.rotation = Quaternion.Euler( directionalLight.rotation.eulerAngles.x, directionalLight.rotation.eulerAngles.y + 90, directionalLight.rotation.eulerAngles.z);
+		RenderSettings.skybox = skyboxes[Random.Range(0, skyboxes.Count)];
 		RenderSettings.skybox.SetFloat("_Rotation", RenderSettings.skybox.GetFloat("_Rotation") + 90);
 		foreach (Module m in modules)
 		{
