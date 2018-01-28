@@ -213,7 +213,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1686778307702206
 GameObject:
@@ -348,6 +348,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1990521372425390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4930209583551106}
+  - component: {fileID: 220845500630749384}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!4 &4026023521937218
 Transform:
   m_ObjectHideFlags: 1
@@ -375,6 +391,7 @@ Transform:
   - {fileID: 4854411339626354}
   - {fileID: 4760362920084784}
   - {fileID: 4615671387188082}
+  - {fileID: 4930209583551106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -601,6 +618,19 @@ Transform:
   m_Father: {fileID: 4844777107709242}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -25.993002, y: -109.756004, z: -13.6310005}
+--- !u!4 &4930209583551106
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990521372425390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.77, y: 1.565, z: -3.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4042153889815592}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4964162492687322
 Transform:
   m_ObjectHideFlags: 1
@@ -1330,3 +1360,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sets: []
+--- !u!220 &220845500630749384
+LightProbeGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990521372425390}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 3.265686, y: -1, z: -0.032859325}
+  - {x: 0.20983124, y: -1, z: -2.636764}
+  - {x: 0.5405884, y: -1, z: 3.523049}
+  - {x: -3.1063461, y: -1, z: 0.5112617}

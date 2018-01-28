@@ -104,7 +104,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1137673926362950
 GameObject:
@@ -471,6 +471,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1850482495979634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4401813636067646}
+  - component: {fileID: 220504274259600822}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1891519516806490
 GameObject:
   m_ObjectHideFlags: 1
@@ -806,6 +822,19 @@ Transform:
   m_Father: {fileID: 4292072865675466}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 105.01301, z: 0}
+--- !u!4 &4401813636067646
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850482495979634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.01, y: 1.35, z: -3.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4799356806130670}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4425002313240086
 Transform:
   m_ObjectHideFlags: 1
@@ -994,6 +1023,7 @@ Transform:
   - {fileID: 4671690685831514}
   - {fileID: 4306607062337174}
   - {fileID: 4996672819231440}
+  - {fileID: 4401813636067646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2072,3 +2102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sets: []
+--- !u!220 &220504274259600822
+LightProbeGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850482495979634}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 2.4281006, y: -0.6579914, z: 3.3429756}
+  - {x: -2.9571686, y: -0.6579914, z: -2.4457893}
