@@ -8,9 +8,12 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert9
+    2100002: MAT_WallsProps01
     2300000: //RootNode
     3300000: //RootNode
     4300000: PROP_Amphora_Handle_3
+    4300002: pCube381
+    4300004: pCube380
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +44,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
