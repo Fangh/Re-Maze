@@ -56,9 +56,9 @@ public class DebuffManager : MonoBehaviour {
     {
         switch (currentStage)
         {
-            case DebuffStage.Normal: return (GetProgression() > 0.3f);
-            case DebuffStage.Distortion: return (GetProgression() > 0.6f);
-            case DebuffStage.Colorblind: return (GetProgression() > 0.85f);
+            case DebuffStage.Normal: return (GetProgression() > 0.5f);
+            case DebuffStage.Distortion: return (GetProgression() > 0.75f);
+            case DebuffStage.Colorblind: return (GetProgression() > 0.95f);
             case DebuffStage.Blind: return (GetProgression() >= 1f);
             default: Debug.LogError("wrong place");
                 return false;
