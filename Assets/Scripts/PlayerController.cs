@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
             d.transform.LookAt(hit.point - hit.normal);
             d.transform.position = Vector3.MoveTowards(d.transform.position, cameraTransform.position, 0.16f);
             audioSource.PlayOneShot(SFX_spray);
-            //d.GetComponentInChildren<Renderer>().material.color = Color.red;
+            d.GetComponentInChildren<Renderer>().material.color = Color.red;
             //d.GetComponentInChildren<Renderer>().material.shader = Shader.Find("UI/Default");
         }
     }

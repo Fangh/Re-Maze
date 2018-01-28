@@ -62439,7 +62439,7 @@ Prefab:
     - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
         type: 2}
       propertyPath: maxSteps
-      value: 300
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
         type: 2}
