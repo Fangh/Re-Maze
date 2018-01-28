@@ -44750,6 +44750,24 @@ Prefab:
       propertyPath: m_MouseLook.YSensitivity
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: decalArrowPrefab
+      value: 
+      objectReference: {fileID: 1299555914016146, guid: a23c33f2757b04f4c925e4ee6d5eed98,
+        type: 2}
+    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: decalCrossPrefab
+      value: 
+      objectReference: {fileID: 1299555914016146, guid: 4fa07a8e2a4c574498c75f3ce4e23906,
+        type: 2}
+    - target: {fileID: 114309469561860850, guid: bda08da08569eaf46b60c5990e1f9c50,
+        type: 2}
+      propertyPath: decalSymbolPrefab
+      value: 
+      objectReference: {fileID: 1299555914016146, guid: f2b9e8bc24c911f409d4f32884ef71da,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bda08da08569eaf46b60c5990e1f9c50, type: 2}
   m_IsPrefabParent: 0
