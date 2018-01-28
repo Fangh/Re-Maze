@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114927976314667794}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,8 +109,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 1
+  m_HDR: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -149,7 +149,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -309,7 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e0dd644f42d194fa9bf97f2eebf0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decalPrefab: {fileID: 1299555914016146, guid: f2b9e8bc24c911f409d4f32884ef71da,
+  decalSymbolPrefab: {fileID: 1299555914016146, guid: f2b9e8bc24c911f409d4f32884ef71da,
+    type: 2}
+  decalCrossPrefab: {fileID: 1299555914016146, guid: 4fa07a8e2a4c574498c75f3ce4e23906,
     type: 2}
   decalsStickOn:
     serializedVersion: 2
@@ -323,10 +325,11 @@ MonoBehaviour:
   - {fileID: 0}
   linePrefab: {fileID: 1164372121358934, guid: 9b51f1c950db8c54cb6753afb38dfcae, type: 2}
   crosshair: {fileID: 0}
+  birdPrefab: {fileID: 1625972503551338, guid: 7997bdbf2d7cc0044896b0d480b8ecff, type: 2}
   SFX_spray: {fileID: 8300000, guid: 83d29ce33bec40e47b65e9a7c2660aa5, type: 3}
   SFX_startDrawing: {fileID: 8300000, guid: d1a75e84f48d95a47a7d8acca655f921, type: 3}
   SFX_stopDrawing: {fileID: 8300000, guid: aed99b7b224249b4e807cc09b80e9611, type: 3}
-  maxSteps: 30
+  maxSteps: 200
   lineLength: 3
   distanceToSpray: 2
 --- !u!114 &114484106584993680
@@ -587,8 +590,8 @@ MonoBehaviour:
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
-    XSensitivity: 2
-    YSensitivity: 2
+    XSensitivity: 3
+    YSensitivity: 3
     clampVerticalRotation: 1
     MinimumX: -90
     MaximumX: 90

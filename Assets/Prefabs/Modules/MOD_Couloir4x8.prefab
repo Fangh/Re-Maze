@@ -211,6 +211,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4323246767556352}
+  - component: {fileID: 114627097503173796}
   m_Layer: 0
   m_Name: MOD_Couloir4x8
   m_TagString: Untagged
@@ -341,6 +342,7 @@ GameObject:
   - component: {fileID: 4721440339189348}
   - component: {fileID: 33490731744082110}
   - component: {fileID: 23379235332998502}
+  - component: {fileID: 64504676172508236}
   m_Layer: 0
   m_Name: COL
   m_TagString: Untagged
@@ -1166,3 +1168,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805854788635244}
   m_Mesh: {fileID: 4300000, guid: b372196925db9ca44a68222a224079e6, type: 3}
+--- !u!64 &64504676172508236
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935530858673244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 447559415ec658b489a5d9d9b2bd1024, type: 3}
+--- !u!114 &114627097503173796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622277075357304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6bf30886fc6974ba61489f9a1d02c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sets: []

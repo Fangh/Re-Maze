@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4032599562906548}
+  - component: {fileID: 114534692895139408}
   m_Layer: 0
   m_Name: MOD_Stairs
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   - component: {fileID: 4111840725616484}
   - component: {fileID: 33958332185428470}
   - component: {fileID: 23206782357504270}
+  - component: {fileID: 64135081060306742}
   m_Layer: 0
   m_Name: COL
   m_TagString: Untagged
@@ -184,3 +186,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1928023784384744}
   m_Mesh: {fileID: 4300000, guid: 7c609982254e44c4f83725842eb3146e, type: 3}
+--- !u!64 &64135081060306742
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515372349151324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 7c609982254e44c4f83725842eb3146e, type: 3}
+--- !u!114 &114534692895139408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412929346771968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6bf30886fc6974ba61489f9a1d02c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sets: []
