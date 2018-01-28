@@ -38,7 +38,10 @@ public class Module : MonoBehaviour
 	public void ChangeSet()
 	{
 		DisableSets();
-		GameObject o = sets[Random.Range(0, sets.Count)];
-		o.SetActive(true);
+		if (sets.Count > 0)
+		{
+			GameObject o = sets[Random.Range(0, sets.Count)];
+			o.SetActive(true);
+		}		
 	}
 }
