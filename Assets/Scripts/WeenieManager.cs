@@ -9,7 +9,9 @@ public class WeenieManager : MonoBehaviour {
     List<Vector3> childrenPos;
 
 	// Use this for initialization
-	void Start () {
+    void Start()
+    {
+        Debug.Assert(weeniePrefab != null, "Assign weenie prefab to the script");
         childrenPos = new List<Vector3>();
         for (int i = 0; i < transform.childCount; ++i)
         {
