@@ -23256,7 +23256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Spray Arrow
+  m_Text: Spray Symbol
 --- !u!222 &1970183198
 CanvasRenderer:
   m_ObjectHideFlags: 0
