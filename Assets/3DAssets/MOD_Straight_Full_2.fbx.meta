@@ -14,13 +14,19 @@ ModelImporter:
     2100000: lambert11
     2100002: lambert12
     2100004: COL_MAT
+    2100006: MAT_WallsProps01
     2300000: COL
     2300002: Straight_Full
     3300000: COL
     3300002: Straight_Full
     4300000: Straight_Full
     4300002: COL
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_WallsProps01
+    second: {fileID: 2100000, guid: 386f2c2a159775a40b5d5125b0df9b0c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
