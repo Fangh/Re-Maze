@@ -41,7 +41,7 @@ public class Module : MonoBehaviour
 		if (sets.Count > 0)
 		{
 			float showSet = Random.value;
-			if (showSet < 0.4f)
+			if (showSet < 0.8f)
 			{
 				GameObject o = sets[Random.Range(0, sets.Count)];
 				o.SetActive(true);

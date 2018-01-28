@@ -172,9 +172,9 @@ public class PlayerController : MonoBehaviour
 		GetComponent<FirstPersonController>().enabled = false;
 	}
 
-	public int GetCurrentSteps()
+	public float GetCurrentSteps()
 	{
-		return Mathf.RoundToInt(currentStepsNumber);
+		return currentStepsNumber;
 	}
 
 	void OnTriggerEnter(Collider other)

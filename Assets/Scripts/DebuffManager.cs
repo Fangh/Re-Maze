@@ -20,7 +20,8 @@ public class DebuffManager : MonoBehaviour {
     public PostProcessingProfile stdProfile;
 
 	// Use this for initialization
-	void Awake () {
+	void Awake () 
+    {
         cam = Camera.main;
         player = GetComponent<PlayerController>();
         postpro = transform.GetChild(0).GetComponent<PostProcessingBehaviour>();
@@ -29,7 +30,8 @@ public class DebuffManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         if (ProgressionHasChanged())
         {
             Debuff();
@@ -67,8 +69,8 @@ public class DebuffManager : MonoBehaviour {
 
     float GetProgression()
     {
-        Debug.Assert(player != null, "player not set in DebuffManager");
-        return ((float)player.GetCurrentSteps() / player.maxSteps);
+        // Debug.Assert(player != null, "player not set in DebuffManager");
+        return (player.GetCurrentSteps() / player.maxSteps);
     }
 
     void Debuff()
