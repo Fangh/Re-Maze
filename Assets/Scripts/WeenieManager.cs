@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class WeenieManager : MonoBehaviour {
 
+    public static WeenieManager Instance;
     public GameObject weeniePrefab;
     Transform weenie;
     List<Vector3> childrenPos;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
 	// Use this for initialization
     void Start()

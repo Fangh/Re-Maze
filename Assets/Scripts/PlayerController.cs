@@ -63,10 +63,10 @@ public class PlayerController : MonoBehaviour
 		GameObject.Instantiate(birdPrefab, birdPrefab.transform.position, birdPrefab.transform.rotation);
 		GetComponent<DebuffManager>().Restart();
 		GetComponent<FirstPersonController>().enabled = true;
-		GetComponent<FirstPersonController>().Reinit();
-		LevelManager.Instance.ResetLevel();
+        GetComponent<FirstPersonController>().Reinit();
         GetComponent<DebuffManager>().Restart();
-
+        WeenieManager.Instance.Restart();
+		LevelManager.Instance.ResetLevel();
 	}
 	
 	// Update is called once per frame
