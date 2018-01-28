@@ -209,3 +209,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportEndZone: {fileID: 0}
+  teleportFX: {fileID: 1550140075340176, guid: 292dec474f2c3cb4886c21c89be05925, type: 2}
