@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
 		{
 			GameObject d = GameObject.Instantiate(decalSymbolPrefab, hit.point, Quaternion.identity );
 			d.transform.LookAt(hit.point - hit.normal);
+            d.transform.position = Vector3.MoveTowards(d.transform.position, cameraTransform.position, 0.16f);
 			audioSource.PlayOneShot(SFX_spray);
             d.GetComponentInChildren<Renderer>().material.color = new Color(0, 145f/255f, 79f/255f);
             d.GetComponentInChildren<Renderer>().material.shader = Shader.Find("UI/Default");
@@ -147,6 +148,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject d = GameObject.Instantiate(decalCrossPrefab, hit.point, Quaternion.identity);
             d.transform.LookAt(hit.point - hit.normal);
+            d.transform.position = Vector3.MoveTowards(d.transform.position, cameraTransform.position, 0.16f);
             audioSource.PlayOneShot(SFX_spray);
             d.GetComponentInChildren<Renderer>().material.color = Color.red;
             d.GetComponentInChildren<Renderer>().material.shader = Shader.Find("UI/Default");
