@@ -18,6 +18,8 @@ ModelImporter:
     3300002: Mur
     4300000: Mur
     4300002: COL
+    6400000: COL
+    6400002: Mur
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -50,7 +52,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
