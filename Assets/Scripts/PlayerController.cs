@@ -4,6 +4,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -11,17 +12,21 @@ public class PlayerController : MonoBehaviour
     public GameObject decalSymbolPrefab;
     public GameObject decalCrossPrefab;
 	public LayerMask decalsStickOn;
-	public Text stepsText;
-	public Text deadText;
 	public List<Transform> respawnPoints;
 	public GameObject linePrefab;
-	public Image crosshair;
 	public GameObject birdPrefab;
+
+	[Header("UI")]
+	public Text stepsText;
+	public Text deadText;
+	public Image crosshair;
+	public Image endPanel;
 	
 	[Header("Audio")]
 	public AudioClip SFX_spray;
 	public AudioClip SFX_startDrawing;
 	public AudioClip SFX_stopDrawing;
+	public AudioClip SFX_win;
 
 	[Header("Balancing")]
 	public float maxSteps = 10;
@@ -36,6 +41,7 @@ public class PlayerController : MonoBehaviour
 	private Transform cameraTransform;
 	private AudioSource audioSource;
 	private bool firstColor = true;
+	private bool win = false;
 
 	// Use this for initialization
 	void Start () 
@@ -68,9 +74,12 @@ public class PlayerController : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButtonDown("Submit"))
         {
-            Init();
+			if (!win)
+            	Init();
+			else
+				Application.Quit();
         }
-		if (isDead)
+		if (isDead || win)
 		{
 			return;
 		}
@@ -166,5 +175,19 @@ public class PlayerController : MonoBehaviour
 	public int GetCurrentSteps()
 	{
 		return Mathf.RoundToInt(currentStepsNumber);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Finish"))
+		{
+			endPanel.gameObject.SetActive(true);
+			endPanel.DOFade(1, 2);
+			stepsText.enabled = false;
+			controller.enabled = false;
+			GetComponent<FirstPersonController>().enabled = false;
+			audioSource.PlayOneShot(SFX_win);
+			win = true;
+		}
 	}
 }

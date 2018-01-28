@@ -40,8 +40,12 @@ public class Module : MonoBehaviour
 		DisableSets();
 		if (sets.Count > 0)
 		{
-			GameObject o = sets[Random.Range(0, sets.Count)];
-			o.SetActive(true);
+			float showSet = Random.value;
+			if (showSet < 0.2f)
+			{
+				GameObject o = sets[Random.Range(0, sets.Count)];
+				o.SetActive(true);
+			}
 		}		
 	}
 }
