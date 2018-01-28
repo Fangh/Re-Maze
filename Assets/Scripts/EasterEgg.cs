@@ -10,9 +10,9 @@ public class EasterEgg : MonoBehaviour {
 
     IEnumerator Restart()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(8.5f);
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
         GameObject.FindGameObjectWithTag("Player").SendMessage("Init");
     }
 }

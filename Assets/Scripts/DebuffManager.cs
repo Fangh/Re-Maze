@@ -98,12 +98,12 @@ public class DebuffManager : MonoBehaviour {
 
     void DistortCamera()
     {
-        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 0.5f, transitionDuration);
+        StartCoroutine(ColorblindnessCoroutine(Time.time, transitionDuration));
     }
 
     void Colorblindness()
     {
-        StartCoroutine(ColorblindnessCoroutine(Time.time, transitionDuration));
+        DOTween.To(() => RenderSettings.fogDensity, x => RenderSettings.fogDensity = x, 0.5f, transitionDuration);
     }
 
     IEnumerator ColorblindnessCoroutine(float startTime, float duration)
@@ -127,6 +127,7 @@ public class DebuffManager : MonoBehaviour {
         cam.cullingMask = 0;
         cam.clearFlags = CameraClearFlags.SolidColor;
         cam.backgroundColor = Color.black;
+        DOTween.KillAll();
     }
 
     public void Restart()

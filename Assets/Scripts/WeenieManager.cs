@@ -12,11 +12,6 @@ public class WeenieManager : MonoBehaviour {
     void Awake()
     {
         Instance = this;
-    }
-
-	// Use this for initialization
-    void Start()
-    {
         Debug.Assert(weeniePrefab != null, "Assign weenie prefab to the script");
         childrenPos = new List<Vector3>();
         for (int i = 0; i < transform.childCount; ++i)
@@ -24,7 +19,7 @@ public class WeenieManager : MonoBehaviour {
             childrenPos.Add(transform.GetChild(i).position);
         }
         weenie = GameObject.Instantiate(weeniePrefab, childrenPos[Random.Range(0, childrenPos.Count)], Quaternion.identity).transform;
-	}
+    }
 
     public void Restart()
     {
