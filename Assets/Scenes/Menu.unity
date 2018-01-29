@@ -16025,21 +16025,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Art :
-
-    COCA Dan Cezar
-
-    Dessaux Jean-Baptiste
-
-
-    Code :
-
-    @FanghGD
-
-
-    Level Design :
-
-    Rakotovao Romane'
+  m_Text: "Art :\nCOCA Dan Cezar\nDessaux Jean-Baptiste\nLe Qu\xE9r\xE9 Paul\n\nCode
+    :\n@FanghGD\nSoual Romain\n\nLevel Design :\nRakotovao Romane"
 --- !u!222 &468986165
 CanvasRenderer:
   m_ObjectHideFlags: 0
