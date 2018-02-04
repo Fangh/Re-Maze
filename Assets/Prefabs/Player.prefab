@@ -149,7 +149,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -316,20 +316,23 @@ MonoBehaviour:
   decalsStickOn:
     serializedVersion: 2
     m_Bits: 4294967039
-  stepsText: {fileID: 0}
-  deadText: {fileID: 0}
   respawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   linePrefab: {fileID: 1164372121358934, guid: 9b51f1c950db8c54cb6753afb38dfcae, type: 2}
-  crosshair: {fileID: 0}
   birdPrefab: {fileID: 1625972503551338, guid: 7997bdbf2d7cc0044896b0d480b8ecff, type: 2}
+  stepsText: {fileID: 0}
+  deadText: {fileID: 0}
+  crosshair: {fileID: 0}
+  endPanel: {fileID: 0}
   SFX_spray: {fileID: 8300000, guid: 83d29ce33bec40e47b65e9a7c2660aa5, type: 3}
   SFX_startDrawing: {fileID: 8300000, guid: d1a75e84f48d95a47a7d8acca655f921, type: 3}
   SFX_stopDrawing: {fileID: 8300000, guid: aed99b7b224249b4e807cc09b80e9611, type: 3}
-  maxSteps: 200
+  SFX_win: {fileID: 8300000, guid: 67a51b710ec45ec44952dc43a0f8c3b4, type: 3}
+  maxSteps: 80
   lineLength: 3
   distanceToSpray: 2
 --- !u!114 &114484106584993680
