@@ -12,8 +12,12 @@ public class Menu : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
+	void Update ()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            Application.Quit();
+        }
 		if(Input.GetButtonDown("Submit"))
 		{
 			SceneManager.LoadScene(1);

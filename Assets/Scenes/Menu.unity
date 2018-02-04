@@ -16026,7 +16026,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Art :\nCOCA Dan Cezar\nDessaux Jean-Baptiste\nLe Qu\xE9r\xE9 Paul\n\nCode
-    :\n@FanghGD\nSoual Romain\n\nLevel Design :\nRakotovao Romane"
+    :\n@FanghGD\n@rsoual\n\nLevel Design :\nRakotovao Romane"
 --- !u!222 &468986165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23576,7 +23576,7 @@ GameObject:
   - component: {fileID: 682554375}
   m_Layer: 0
   m_Name: Soaring
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

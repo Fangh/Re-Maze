@@ -72,6 +72,12 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+#if !UNITY_EDITOR
+        if (CrossPlatformInputManager.GetButtonDown("Cancel"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+#endif
         if (CrossPlatformInputManager.GetButtonDown("Submit"))
         {
 			if (!win)

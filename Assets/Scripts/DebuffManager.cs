@@ -36,6 +36,7 @@ public class DebuffManager : MonoBehaviour {
         {
             Debuff();
         }
+        DebuffEffect();
         //if (Input.GetKeyDown(KeyCode.R))
         //{
         //    Restart();
@@ -78,21 +79,38 @@ public class DebuffManager : MonoBehaviour {
         switch (currentStage)
         {
             case DebuffStage.Normal:
-                DistortCamera();
                 currentStage = DebuffStage.Distortion;
                 break;
             case DebuffStage.Distortion:
-                Colorblindness();
                 currentStage = DebuffStage.Colorblind;
                 break;
             case DebuffStage.Colorblind:
-                Darkness();
                 currentStage = DebuffStage.Blind;
                 break;
             case DebuffStage.Blind: Die();
                 break;
             default: Debug.LogError("wrong place");
                 break;
+        }
+    }
+
+    void DebuffEffect()
+    {
+        float progression = GetProgression();
+        if (progression > 0.45f && progression < 0.55f)
+        {
+            float t = Mathf.Clamp((progression - 0.45f) * 10, 0, 1);
+            postproCont.colorGrading.basic.saturation = Mathf.Lerp(1, 0, t);
+        }
+        if (progression > 0.70f && progression < 0.80f)
+        {
+            float t = Mathf.Clamp((progression - 0.70f) * 10, 0, 1);
+            RenderSettings.fogDensity = Mathf.Lerp(0.1f, 0.5f, t);
+        }
+        if (progression > 0.94f && progression < 0.99f)
+        {
+            float t = Mathf.Clamp((progression - 0.94f) * 20, 0, 1);
+            RenderSettings.fogDensity = Mathf.Lerp(0.5f, 1f, t);
         }
     }
 
